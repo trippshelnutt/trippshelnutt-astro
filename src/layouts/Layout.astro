@@ -1,22 +1,67 @@
 ---
-interface Props {
-	title: string;
-}
-
-const { title } = Astro.props;
+import "../styles/brands.min.css";
+import "../styles/fontawesome.min.css";
+import "../styles/solid.min.css";
+import "../styles/custom.css";
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="google-site-verification"
+      content="bbeMFVfCgsQoSR-0vbLYK4seHeQkqG8RriOQfKE07Ng"
+    />
+    <meta
+      name="google-site-verification"
+      content="muSWTm4hx8LR-x_0pYSxKOCYO3ztPC8RNBHx0ufUJbk"
+    />
+    <meta
+      name="google-site-verification"
+      content="_2xWxbyalVXrUjMMGy1dTOb50mjVtVEmQnTVU2czN9Q"
+    />
+    <meta
+      name="google-site-verification"
+      content="c5E52uDuuaonrfjuwEZbpPw5ibu_qEWm1Ic8FAb0RzQ"
+    />
+    <title>Tripp Shelnutt</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+  </head>
+
+  <body>
+    <header>
+      <img src="/images/bricks.jpg" /><h1>Tripp Shelnutt</h1>
+    </header>
+    <nav>
+      <a href="/">Home</a>
+      <span>|</span>
+      <a href="/blog">Blog</a>
+      <span>|</span>
+      <a href="/projects">Projects</a>
+      <span>|</span>
+      <a href="/resume">Resume</a>
+      <span>|</span>
+      <a href="/uses">Uses</a>
+      <span>|</span>
+      <a href="/about">About</a>
+    </nav>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <a href="https://www.linkedin.com/in/trippshelnutt/" class="linkedin">
+        <span class="fa-stack fa-lg">
+          <i class="fa-solid fa-circle fa-stack-2x"></i>
+          <i class="fa-brands fa-linkedin fa-stack-1x fa-inverse"></i>
+        </span></a
+      >
+      <a href="https://github.com/trippshelnutt" class="github">
+        <span class="fa-stack fa-lg">
+          <i class="fa-solid fa-circle fa-stack-2x"></i>
+          <i class="fa-brands fa-github fa-stack-1x fa-inverse"></i>
+        </span></a
+      >
+    </footer>
+  </body>
 </html>
