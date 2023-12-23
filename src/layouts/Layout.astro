@@ -5,6 +5,7 @@ import "../styles/solid.min.css";
 import Header from "../components/header.astro";
 import Footer from "../components/footer.astro";
 import Navigation from "../components/navigation.astro";
+const { title } = Astro.props;
 ---
 
 <!doctype html>
@@ -27,13 +28,13 @@ import Navigation from "../components/navigation.astro";
       name="google-site-verification"
       content="c5E52uDuuaonrfjuwEZbpPw5ibu_qEWm1Ic8FAb0RzQ"
     />
-    <title>Tripp Shelnutt</title>
+    <title>Tripp Shelnutt - {title}</title>
     <link rel="shortcut icon" href="/favicon.ico" />
   </head>
 
   <body>
-    <Header />
     <Navigation />
+    <Header />
     <main>
       <slot />
     </main>
@@ -43,12 +44,15 @@ import Navigation from "../components/navigation.astro";
 
 <style is:global>
   a {
-    @apply text-amber-400 underline;
+    @apply text-amber-400 underline decoration-wavy decoration-1;
   }
 
-  h2,
-  h3 {
-    @apply text-2xl lg:text-4xl underline text-fuchsia-300 -skew-y-2 font-bold;
+  h2 {
+    @apply text-4xl lg:text-6xl text-fuchsia-300 font-bold;
+  }
+
+  h4 {
+    @apply text-lg lg:text-xl text-fuchsia-200 italic;
   }
 
   section {
@@ -62,6 +66,6 @@ import Navigation from "../components/navigation.astro";
   }
 
   main {
-    @apply max-w-2xl lg:max-w-4xl flex flex-col justify-start gap-8;
+    @apply max-w-2xl lg:max-w-4xl min-w-80 flex flex-col justify-start gap-8;
   }
 </style>
