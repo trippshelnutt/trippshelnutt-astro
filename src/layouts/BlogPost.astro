@@ -1,0 +1,27 @@
+---
+import Layout from "./Layout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title}>
+  <section>
+    <h2>{frontmatter.title}</h2>
+    <h4>by {frontmatter.author}</h3>
+  </section>
+  <section>
+    <p>{frontmatter.description}</p>
+  </section>
+  <section>
+    <slot />
+  </section>
+</Layout>
+
+<style>
+  i {
+    @apply pr-4 text-amber-400 scale-75;
+  }
+
+  p {
+    @apply italic text-base lg:text-lg text-amber-400;
+  }
+</style>
