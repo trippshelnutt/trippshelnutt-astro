@@ -1,0 +1,50 @@
+---
+
+---
+
+<script>
+  function toggleNavigation(event: any) {
+    const navMenu = document.querySelector("[data-nav-menu]") as HTMLElement;
+    if (navMenu != null) {
+      if (navMenu.style.display === "inline") {
+        navMenu.style.display = "none";
+      } else {
+        navMenu.style.display = "inline";
+      }
+    }
+  }
+
+  const navButton = document.querySelector("[data-nav-button]");
+
+  navButton?.addEventListener("click", toggleNavigation);
+</script>
+
+<button data-nav-button>
+  <i class="fa fa-bars"></i>
+  <nav data-nav-menu>
+    <a href="/">Home</a>
+    <a href="/blog">Blog</a>
+    <a href="/projects">Projects</a>
+    <a href="/resume">Resume</a>
+    <a href="/uses">Uses</a>
+    <a href="/about">About</a>
+  </nav>
+</button>
+
+<style>
+  button {
+    @apply inline sm:hidden border-2 rounded-md h-16 min-h-16 w-16 min-w-16 border-indigo-400 text-center text-fuchsia-300 hover:text-amber-400;
+  }
+
+  i {
+    @apply scale-150;
+  }
+
+  nav {
+    @apply hidden absolute border-2 bg-gradient-to-br from-slate-900 to-indigo-900 bg-fixed p-4 m-4 rounded-md top-0 right-0 flex flex-row justify-center items-center z-10;
+  }
+
+  a {
+    @apply block max-w-40 p-4 text-2xl;
+  }
+</style>
