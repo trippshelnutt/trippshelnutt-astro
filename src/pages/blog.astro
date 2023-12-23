@@ -1,25 +1,24 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import BlogPostCardContainer from "../components/BlogPostCardContainer.astro";
 ---
 
 <Layout title="Blog">
   <h2>Blog</h2>
 
   <section>
-    <p>Coming Soon!</p>
-    <p>
-      After converting the site to Astro, I plan on blogging directly on this
-      site. For now, you can still access my blog on Hashnode.
-    </p>
+    <BlogPostCardContainer />
   </section>
 
   <section class="text-center">
-    <a href="https://blog.trippshelnutt.com" target="_blank"
-      ><i class="fa-solid fa-blog"></i>Blog on Hashnode</a
-    >
-    <a href="https://blog.trippshelnutt.com/rss.xml" target="_blank"
-      ><i class="fa-solid fa-rss"></i>RSS Feed</a
-    >
+    <!-- <a href="https://blog.trippshelnutt.com" target="_blank">
+      <i class="fa-solid fa-blog"></i>Blog on Hashnode
+    </a> -->
+    <span>
+    <a>
+      <i class="fa-solid fa-rss"></i>RSS Feed
+    </a>(TODO)
+    </span>
   </section>
 </Layout>
 

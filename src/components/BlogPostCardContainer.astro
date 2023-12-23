@@ -1,0 +1,45 @@
+---
+let posts = await Astro.glob("../pages/posts/*.md");
+posts.sort((a: any, b: any) => Date.parse(b.frontmatter.date) - Date.parse(a.frontmatter.date));
+posts = posts.map((post) => ({...post, onclick: `window.location.href = "${post.url}"`, formattedDate: new Date(post.frontmatter.date).toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' })}));
+---
+<div class="card-container">
+    {
+      posts.map((post: any) =>
+          <div class="card-box">
+            <button class="card" onclick={post.onclick}>
+              <a>{post.frontmatter.title}</a>
+              <p class="description">{post.frontmatter.description}</p>
+              <p class="date">{post.formattedDate}</p>
+              <p>&nbsp;</p>
+            </button>
+          </div>
+      )
+    }
+</div>
+
+<style>
+  div.card-container {
+    @apply flex flex-row justify-start flex-wrap text-lg lg:text-xl;
+  }
+
+  div.card-box {
+    @apply basis-full sm:basis-1/2 lg:basis-1/3 p-2;
+  }
+
+  button.card {
+    @apply relative text-left rounded-xl basis-full sm:basis-1/2 lg:basis-1/3 bg-slate-900 border-4 border-indigo-400 min-h-full min-w-full p-4 hover:scale-110 flex flex-col gap-4;
+  }
+
+  a.card p {
+    @apply no-underline;
+  }
+
+  p.description {
+    @apply italic text-base lg:text-lg;
+  }
+
+  p.date {
+    @apply text-right text-sm lg:text-base absolute bottom-0 right-0 p-4;
+  }
+</style>
